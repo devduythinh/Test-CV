@@ -125,10 +125,8 @@ const Header = () => {
             {listMenu.map((item, index) => (
               <li key={index}>
                 <button
-                  className={`block py-2 px-3 w-full text-left   ${
-                    menuSelected === item.id
-                      ? "bg-headerBg/70 text-white rounded-lg"
-                      : ""
+                  className={`block py-2 px-3 w-full text-left text-white dark:text-white   ${
+                    menuSelected === item.id ? "bg-headerBg/70  rounded-lg" : ""
                   } `}
                   onClick={() => handleMenuClick(item.id)}
                 >
