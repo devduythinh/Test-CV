@@ -40,7 +40,7 @@ export default function HeroSection() {
       {/* Footer */}
       <footer className="bg-[#582D2D] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
             {/* Company Info */}
             <div>
               <h3 className="font-bold mb-4">BASIC</h3>
@@ -102,7 +102,7 @@ export default function HeroSection() {
           </div>
 
           {/* Footer Bottom */}
-          <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center pb-10">
+          <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center pb-10 text-center md:text-left">
             <p className="text-sm">&copy; BASIC 2024</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="bg-exploreBg p-2 rounded-full">

@@ -68,7 +68,7 @@ const Header = () => {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">
             Logo sample
           </span>
         </Link>
@@ -108,7 +108,7 @@ const Header = () => {
             {listMenu.map((item, index) => (
               <li key={index}>
                 <button
-                  className={`block py-2 px-3 md:p-0 text-white `}
+                  className={`block py-2 px-3 md:p-0 text-white dark:text-white`}
                   onClick={() => handleMenuClick(item.id)}
                 >
                   {item.title}
@@ -152,7 +152,7 @@ const Header = () => {
                   />
                 }
               >
-                <p className="sm:hidden lg:block">{textContact}</p>
+                <p className="sm:hidden lg:block text-white">{textContact}</p>
               </Button>
             </li>
             <li></li>
