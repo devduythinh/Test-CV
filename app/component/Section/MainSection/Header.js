@@ -16,7 +16,6 @@ const Header = () => {
   const menuRef = useRef(null);
 
   const { content } = useLanguage();
-  console.log("content", content);
 
   const [isOpen, setIsOpen] = useState(false);
   const [menuSelected, setMenuSelected] = useState("1");
@@ -83,12 +82,12 @@ const Header = () => {
             </Button>
             <Button
               type="explore"
-              className="rounded-full px-4 py-[10px] Poppins"
+              className="rounded-full px-4 py-[10px] "
               iconAfter={
                 <Image src={ContactIcon} alt="Contact" width={14} height={14} />
               }
             >
-              <p className="sm:hidden md:block">{textContact}</p>
+              <p className="hidden lg:block">{textContact}</p>
             </Button>
           </div>
           <button
@@ -108,7 +107,7 @@ const Header = () => {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 lg"
           id="navbar-cta"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 gap-6 ">
+          <ul className="flex  font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse flex-row md:mt-0 md:border-0 gap-6 md:gap-2 ">
             {listMenu.map((item, index) => (
               <li key={index}>
                 <button
@@ -122,7 +121,7 @@ const Header = () => {
           </ul>
         </div>
         <div
-          className={`${isOpen ? "block sm:hidden" : "hidden"} w-full`}
+          className={`${isOpen ? "block md:hidden" : "hidden"} w-full`}
           id="navbar-hamburger"
         >
           <ul className="flex flex-col font-medium mt-4 ">
@@ -154,7 +153,7 @@ const Header = () => {
                   />
                 }
               >
-                <p className="sm:hidden md:block text-white">{textContact}</p>
+                <p className=" text-white">{textContact}</p>
               </Button>
             </li>
           </ul>
