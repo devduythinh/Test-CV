@@ -6,20 +6,24 @@ import MountainIcon from "@/public/icons/mountain.svg";
 import FishIcon from "@/public/icons/fish.svg";
 import TargetIcon from "@/public/icons/target.svg";
 import Image from "next/image";
+import _get from "lodash/get";
+import { useLanguage } from "../../Context/LanguageContext";
 
 const MainSection = () => {
+  const { content } = useLanguage();
+
   const ItemActivity = [
     {
       icon: MountainIcon,
-      title: "Activité 1",
+      title: _get(content, "[0].banner_menu[0]", ""),
     },
     {
       icon: FishIcon,
-      title: "Activité 2",
+      title: _get(content, "[0].banner_menu[1]", ""),
     },
     {
       icon: TargetIcon,
-      title: "Activité 3",
+      title: _get(content, "[0].banner_menu[2]", ""),
     },
   ];
 
@@ -40,7 +44,7 @@ const MainSection = () => {
                 height={24}
                 className="h-6 w-6"
               />
-              <p className="lg:hidden">{item.title}</p>
+              <p className="lg:hidden text-white text-center">{item.title}</p>
             </div>
           ))}
         </div>

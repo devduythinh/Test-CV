@@ -29,6 +29,10 @@ export default {
       },
       screens: {
         "custom-md": "834px",
+        sm: "376px", // Small
+        md: "835px", // Medium
+        lg: "1195px", // Large
+        xl: "1921px", // Extra Large
       },
     },
   },

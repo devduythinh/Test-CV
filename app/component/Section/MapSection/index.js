@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../Atomic/Button";
 
 import Image from "next/image";
@@ -16,15 +16,21 @@ import _get from "lodash/get";
 
 export default function MapSection() {
   const { content } = useLanguage();
+  const mapsRef = useRef(null);
   const [points, setPoints] = useState([]);
 
   const activities = _get(content, "[0].bloc_2.cases", []);
-  console.log("activities", activities);
 
   const defaultPoint = [
-    { x: "20%", y: "20%", icon: MountainIcon, id: 1, info: "Mountain" },
-    { x: "30%", y: "15%", icon: FishIcon, id: 2, info: "Fish" },
-    { x: "50%", y: "25%", icon: TargetIcon, id: 3, info: "Target" },
+    {
+      x: "40%",
+      y: "30%",
+      icon: MountainIcon,
+      id: "map-point1",
+      info: "Mountain",
+    },
+    { x: "50%", y: "45%", icon: FishIcon, id: "map-point2", info: "Fish" },
+    { x: "50%", y: "55%", icon: TargetIcon, id: "map-point3", info: "Target" },
   ];
 
   useEffect(() => {
@@ -45,17 +51,14 @@ export default function MapSection() {
   const title = _get(content, "[0].bloc_2.title", "");
 
   return (
-    <section className="h-full w-full bg-mapBg pb-[60px] relative">
-      <Image
-        src={MapBg}
-        alt="Map"
-        width={1920}
-        height={986}
-        className="w-full h-full absolute top-0 left-0 z-1 object-cover"
-      />
-      <div className="max-w-[1240px] mx-auto px-4">
+    <section className="h-full w-full pb-[60px] relative" id="map-section">
+      <div className="absolute top-0 left-0 w-full h-full bg-mapBg -z-10 bg-[url('/images/bg-map.svg')] "></div>
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-8 lg:px-0 z-10">
         <Title title={title} />
-        <div className="flex gap-2 sm:gap-5 justify-center items-center mt-6 flex-wrap">
+        <div
+          className="flex gap-2 sm:gap-5 justify-center items-center mt-6 flex-wrap"
+          id="map-button-container"
+        >
           {points.map((point, index) => (
             <Button
               key={index}
@@ -64,13 +67,17 @@ export default function MapSection() {
                 <Image src={point.icon} alt="Mountain" width={24} height={24} />
               }
               className="rounded-full px-4 pt-2 !font-medium"
+              onClick={() => {
+                mapsRef.current.setSelectedPoint(point);
+                mapsRef.current.zoomToElement(point.id);
+              }}
             >
-              {point.info}
+              {point.info}ss
             </Button>
           ))}
         </div>
         <div className=" mt-6 rounded-lg overflow-hidden relative">
-          <Maps image={MapImage} points={points} />
+          <Maps image={MapImage} points={points} mapsRef={mapsRef} />
         </div>
       </div>
     </section>

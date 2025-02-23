@@ -11,6 +11,7 @@ import ProductSlider from "./component/Section/SlideProductSection";
 import MarketingSection from "./component/Section/MarketingSection";
 import HeroSection from "./component/Section/HeroSection";
 import LanguageSwitcher from "./component/Section/LanguageSwitcher";
+import MemorableMoment from "./component/Section/MemorableMoment";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <CalendarSection />
       <ProductSlider />
       <MarketingSection />
+      <MemorableMoment />
       <HeroSection />
       <Button
         className="fixed bottom-28 right-4 rounded-full w-[34px] h-[34px] sm:w-14 sm:h-14 !p-2 md:!p-3.5 z-[1000]"

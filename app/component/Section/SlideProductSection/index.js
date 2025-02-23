@@ -84,7 +84,7 @@ export default function ProductSlider() {
     .slice(0, 4);
   return (
     <div className="bg-white md:py-3">
-      <div className="relative px-4 py-8 md:py-16 sm:py-24 max-w-[1240px] mx-auto">
+      <div className="relative px-4 sm:px-8 lg:px-0 py-8 md:py-16 sm:py-24 max-w-[1240px] mx-auto ">
         <div className="flex justify-center sm:justify-between  items-end">
           <h2 className="text-[32px] sm:text-[40px] text-centet sm:text-left font-semibold text-exploreBg uppercase">
             {title}

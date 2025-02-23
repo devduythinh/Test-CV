@@ -24,14 +24,7 @@ export default function HeroSection() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <div className="w-full h-full absolute top-0 left-0 z-1 object-cover" />
-      <div
-        style={{
-          background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 65.5%, rgba(0, 0, 0, 0.2) 100%), 
-            url('/images/footer-image-2.png') no-repeat center / cover`,
-        }}
-        className="relative h-[666px] flex flex-col items-center justify-center text-center px-4 "
-      >
+      <div className=" bg-gray-200 bg-linear-to-b from-white to-slate-50 bg-cover  bg-no-repeat relative h-[666px] flex flex-col items-center justify-center text-center px-4 bg-[url('/images/bg-footer-mb.png')] md::bg-[url('/images/bg-footer-md.png')] lg:bg-[url('/images/footer-image-2.png')] bg- bg-center">
         <div className="relative z-10 max-w-[647px] mx-auto">
           <h1 className="text-3xl md:text-[52px] font-bold text-activityText">
             {title}

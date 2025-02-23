@@ -46,8 +46,8 @@ export default function MarketingSection() {
   const text = _get(content, "[0].bloc_4.text", "");
   const pictos = _get(content, "[0].bloc_4.pictos", []);
   return (
-    <section className="bg-white mt-10 md:mt-20 md:mb-[120px]">
-      <div className="mx-auto  max-w-[1240px] px-4 py-10 md:py-[60px]">
+    <section className="bg-white mt-10 md:mt-0 md:mb-[120px]">
+      <div className="mx-auto  max-w-[1240px] px-4 sm:px-8 lg:px-0 py-10 md:py-0">
         <div className=" grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 hidden md:grid">
           <div className="hidden sm:block">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

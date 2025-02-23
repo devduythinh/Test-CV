@@ -41,8 +41,6 @@ const Header = () => {
         ]
       : "";
 
-  console.log("textContact", textContact);
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -63,12 +61,12 @@ const Header = () => {
       ref={menuRef}
       className=" bg-headerBg w-full fixed top-0 left-0 right-0 z-50 "
     >
-      <div className="flex flex-wrap items-center justify-between mx-auto py-2 px-8 max-w-[1240px]">
+      <div className="flex flex-wrap items-center justify-between mx-auto py-[10px] md:py-2 px-4 sm:px-8 max-w-[1240px]">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">
+          <span className="self-center text-[10.5px] sm:text-[15px] md:text-[10.5px] lg:text-[15px] font-bold whitespace-nowrap text-white dark:text-white uppercase">
             Logo sample
           </span>
         </Link>
@@ -90,14 +88,20 @@ const Header = () => {
                 <Image src={ContactIcon} alt="Contact" width={14} height={14} />
               }
             >
-              <p className="sm:hidden lg:block">{textContact}</p>
+              <p className="sm:hidden md:block">{textContact}</p>
             </Button>
           </div>
           <button
             className="block md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <Image src={MenuIcon} alt="Menu" width={24} height={24} />
+            <Image
+              src={MenuIcon}
+              alt="Menu"
+              width={24}
+              height={24}
+              className="w-6 h-6 sm:w-8 sm:h-8"
+            />
           </button>
         </div>
         <div
@@ -108,7 +112,7 @@ const Header = () => {
             {listMenu.map((item, index) => (
               <li key={index}>
                 <button
-                  className={`block py-2 px-3 md:p-0 text-white dark:text-white`}
+                  className={`block py-2 px-3 md:p-0 text-white dark:text-white `}
                   onClick={() => handleMenuClick(item.id)}
                 >
                   {item.title}
@@ -150,10 +154,9 @@ const Header = () => {
                   />
                 }
               >
-                <p className="sm:hidden lg:block text-white">{textContact}</p>
+                <p className="sm:hidden md:block text-white">{textContact}</p>
               </Button>
             </li>
-            <li></li>
           </ul>
         </div>
       </div>
