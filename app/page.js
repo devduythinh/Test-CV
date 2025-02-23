@@ -23,7 +23,7 @@ export default function Home() {
       <MarketingSection />
       <HeroSection />
       <Button
-        className="fixed bottom-28 right-4 rounded-full w-[34px] h-[34px] sm:w-14 sm:h-14 !p-2 md:!p-3.5"
+        className="fixed bottom-28 right-4 rounded-full w-[34px] h-[34px] sm:w-14 sm:h-14 !p-2 md:!p-3.5 z-[1000]"
         type="explore"
       >
         <Image src={ChatIcon} alt="Chat" width={34} height={34} />

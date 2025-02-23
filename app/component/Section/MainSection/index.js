@@ -6,7 +6,6 @@ import MountainIcon from "@/public/icons/mountain.svg";
 import FishIcon from "@/public/icons/fish.svg";
 import TargetIcon from "@/public/icons/target.svg";
 import Image from "next/image";
-import { useLanguage } from "../../Context/LanguageContext";
 
 const MainSection = () => {
   const ItemActivity = [
@@ -30,13 +29,21 @@ const MainSection = () => {
       style={{ backgroundImage: `url('/images/heroImage.svg')` }}
     >
       <Header />
-      <div className="flex justify-around items-center h-fit absolute bottom-9 gap-2 py-6 px-2 w-full border-t border-white/30 max-w-screen-xl left-1/2 -translate-x-1/2">
-        {ItemActivity.map((item, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <Image src={item.icon} alt={item.title} width={24} height={24} />
-            <p className="lg:hidden">{item.title}</p>
-          </div>
-        ))}
+      <div className=" h-fit absolute bottom-9 py-6 w-full border-t border-white/30 max-w-screen-xl left-1/2 -translate-x-1/2">
+        <div className="flex w-full md:px-20">
+          {ItemActivity.map((item, index) => (
+            <div key={index} className="flex flex-col items-center py-5 flex-1">
+              <Image
+                src={item.icon}
+                alt={item.title}
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
+              <p className="lg:hidden">{item.title}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

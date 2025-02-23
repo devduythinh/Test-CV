@@ -4,8 +4,13 @@ import ImageFood2 from "@/public/images/food-2.svg";
 import ImageFood3 from "@/public/images/food-3.svg";
 import Button from "../../Atomic/Button";
 import DetailIcon from "@/public/icons/detail.svg";
+import { useLanguage } from "../../Context/LanguageContext";
+import _get from "lodash/get";
 
 export default function ProductCard() {
+  const { content } = useLanguage();
+  const cases = _get(content, "[0].bloc_1.cases", []);
+
   const cards = [
     {
       image: ImageFood1,
@@ -36,15 +41,15 @@ export default function ProductCard() {
   return (
     <div className="container mx-auto h-full pb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-        {cards.map((card, index) => (
+        {cases.map((card, index) => (
           <div
             key={index}
             className="bg-white rounded-lg overflow-hidden  transition-transform duration-300 hover:scale-105"
           >
             <div className="relative h-64">
               <Image
-                src={card.image}
-                alt={card.alt}
+                src={cards[index].image}
+                alt={cards[index].alt}
                 fill
                 className="object-cover rounded-lg"
               />
@@ -52,12 +57,14 @@ export default function ProductCard() {
             <div className="pt-5">
               <div className="space-y-2">
                 <h3 className="text-exploreBg text-xs sm:text-sm font-medium">
-                  {card.title}
+                  {card.category}
                 </h3>
                 <h2 className="text-2xl font-medium text-headerBg">
-                  {card.subtitle}
+                  {card.tagline}
                 </h2>
-                <p className="text-productText/80 line-clamp-2">{card.text}</p>
+                <p className="text-productText/80 line-clamp-2">
+                  {card.description}
+                </p>
               </div>
               <Button
                 type="activity"
@@ -66,7 +73,7 @@ export default function ProductCard() {
                   <Image src={DetailIcon} alt="Detail" width={14} height={14} />
                 }
               >
-                {card.buttonText}
+                {card.cta}
               </Button>
             </div>
           </div>

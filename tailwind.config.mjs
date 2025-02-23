@@ -22,6 +22,7 @@ export default {
         calendarBorder: "#562C2C4D",
         mapBg: "#FFF6F4",
         calendarBg: "#FFF4F1",
+        toolColor: "#0E9594",
       },
       maxWidth: {
         "screen-xl": "1240px",

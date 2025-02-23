@@ -1,38 +1,5 @@
 "use client";
 
-// import { createContext, useContext, useState, useEffect } from "react";
-
-// const LanguageContext = createContext();
-
-// export const LanguageProvider = ({ children }) => {
-//   const [currentLang, setCurrentLang] = useState("en");
-//   const [textData, setTextData] = useState(null);
-
-//   const fetchTextData = async (langCode) => {
-//     try {
-//       const response = await fetch(
-//         `https://api.test.soa-dev.net/api/v1/pages?lang=${langCode}`
-//       );
-//       const data = await response.json();
-//       setTextData(data);
-//     } catch (error) {
-//       console.error("Error fetching text data:", error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchTextData(currentLang);
-//   }, [currentLang]);
-
-//   return (
-//     <LanguageContext.Provider value={{ currentLang, setCurrentLang, textData }}>
-//       {children}
-//     </LanguageContext.Provider>
-//   );
-// };
-
-// export const useLanguage = () => useContext(LanguageContext);
-
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 

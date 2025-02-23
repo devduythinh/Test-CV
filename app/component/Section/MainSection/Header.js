@@ -15,7 +15,7 @@ import _get from "lodash/get";
 const Header = () => {
   const menuRef = useRef(null);
 
-  const { language, setLanguage, content } = useLanguage();
+  const { content } = useLanguage();
   console.log("content", content);
 
   const [isOpen, setIsOpen] = useState(false);

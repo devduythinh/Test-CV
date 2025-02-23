@@ -18,6 +18,8 @@ import ProdImg4 from "@/public/images/prd-slide-4.svg";
 import NextIcon from "@/public/icons/next.svg";
 import NextWhiteIcon from "@/public/icons/next-white.svg";
 import Button from "../../Atomic/Button";
+import { useLanguage } from "../../Context/LanguageContext";
+import _get from "lodash/get";
 
 // Sample product data
 const products = [
@@ -64,18 +66,31 @@ const products = [
 ];
 
 export default function ProductSlider() {
+  const { content } = useLanguage();
+  const title = _get(content, "[0].bloc_3.title", "");
+  const more = _get(content, "[0].bloc_3.more_info", "");
+
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
 
+  const listPrd = _get(content, "[0].bloc_3.cases", [])
+    .map((item, index) => ({
+      id: index,
+      image: products[index].image,
+      title: item.tagline,
+      subtitle: item.category,
+      text: item.description,
+    }))
+    .slice(0, 4);
   return (
-    <div className="bg-white py-3">
-      <div className="relative px-4 py-16 sm:py-24 max-w-[1240px] mx-auto">
+    <div className="bg-white md:py-3">
+      <div className="relative px-4 py-8 md:py-16 sm:py-24 max-w-[1240px] mx-auto">
         <div className="flex justify-center sm:justify-between  items-end">
           <h2 className="text-[32px] sm:text-[40px] text-centet sm:text-left font-semibold text-exploreBg uppercase">
-            Titre
+            {title}
           </h2>
           <div className=" items-center gap-2 text-xl font-medium text-[#666666] border-b border-[#666666] h-fit hidden sm:flex">
-            En savoir plus
+            {more}
             <Image src={NextIcon} alt="next" width={18} height={15} />
           </div>
         </div>
@@ -95,13 +110,13 @@ export default function ProductSlider() {
             }}
             className="mySwiper"
           >
-            {products.map((product) => (
+            {listPrd.map((product) => (
               <SwiperSlide key={product.id}>
                 <div className="group relative">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     <Image
                       src={product.image || "/placeholder.svg"}
-                      alt={product.name}
+                      alt="product image"
                       className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       width={300}
                       height={300}
@@ -132,7 +147,7 @@ export default function ProductSlider() {
             <Image src={NextWhiteIcon} alt="next" width={18} height={15} />
           }
         >
-          En Savoir Plus
+          {more}
         </Button>
       </div>
     </div>
